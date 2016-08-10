@@ -11,21 +11,21 @@ A solution where the Dev_Raspi can send events to the broker and then we can con
   4. Configure the application.conf with the port and the url of the mosquitto server. 
   5. Make a assembly jar of this project using the following command.
 
-    sbt assembly
+      sbt assembly
   
   6. Copy the jar to RaspberryPi using the scp command.
 
-      scp raspi-mqtt-client.jar pi@<pi-ip-address>:/home/pi/Projects/scala
+         scp raspi-mqtt-client.jar pi@<pi-ip-address>:/home/pi/Projects/scala
   
   7. Run the Publisher on Dev_RaspberryPi using the following command
   
-      java -cp raspi-mqtt-client.jar com.knoldus.MQTTPublisher
+         java -cp raspi-mqtt-client.jar com.knoldus.MQTTPublisher
 
     This will start the publisher to sending the temperature events to broker. 
   
   8. Run the Subscriber on Dev_Laptop using the following command
   
-      java -cp raspi-mqtt-client.jar com.knoldus.TemperatureStreaming
+         java -cp raspi-mqtt-client.jar com.knoldus.TemperatureStreaming
 
 ##What you accomplished: 
 
