@@ -3,6 +3,7 @@ import org.eclipse.paho.client.mqttv3.{MqttClient, MqttException, MqttMessage}
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
 
 import scala.sys.process._
+import scala.util.Try
 
 /**
   *
@@ -15,9 +16,8 @@ import scala.sys.process._
 
 object MQTTPublisher extends App {
 
-  val config = ConfigFactory.load()
-  val url = config.getString("mosquitto-server.url")
-  val port = config.getInt("mosquitto-server.port")
+  val url = Try(ConfigFactory.load().getString("mosquitto-server.url")).toOption.fold("localhost")
+  val port = Try(ConfigFactory.load().getInt("mosquitto-server.port")).toOption.fold(1883)
 
   def publishToserver() = {
     println("Hey I am publishing")
