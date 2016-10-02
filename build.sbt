@@ -1,9 +1,9 @@
 name := "spark-streaming-mqtt-raspberryPi"
 
 
-val spark = "org.apache.spark" %% "spark-core" % "1.6.2"
-val sparkStreamingMqtt = "org.apache.spark" %% "spark-streaming-mqtt" % "1.6.2"
-val sparkStreaming = "org.apache.spark" %% "spark-streaming" % "1.6.2"
+val spark = "org.apache.spark" %% "spark-core" % "2.0.0"
+val sparkStreamingMqtt = "org.apache.spark" %% "spark-streaming-mqtt" % "2.0.0"
+val sparkStreaming = "org.apache.spark" %% "spark-streaming" % "2.0.0"
 
 
 resolvers += "bintray-spark-packages" at "https://dl.bintray.com/spark-packages/maven/"
@@ -31,7 +31,7 @@ assemblyMergeStrategy in assembly := {
 }
 
 spName := "shiv4nsh/spark-streaming-mqtt-raspberryPi"
-sparkVersion := "1.6.2"
+sparkVersion := "2.0.0"
 
 ivyScala := ivyScala.value map {
   _.copy(overrideScalaVersion = true)
