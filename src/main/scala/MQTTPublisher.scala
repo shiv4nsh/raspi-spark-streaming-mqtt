@@ -15,9 +15,10 @@ import scala.util.Try
   */
 
 object MQTTPublisher extends App {
+  lazy val config= ConfigFactory.load()
 
-  val url = Try(ConfigFactory.load().getString("mosquitto-server.url")).toOption.fold("localhost")
-  val port = Try(ConfigFactory.load().getInt("mosquitto-server.port")).toOption.fold(1883)
+  val url = Try(config.getString("mosquitto-server.url")).getOrElse("localhost")
+  val port = Try(config.getInt("mosquitto-server.port")).getOrElse(1883)
 
   def publishToserver() = {
     println("Hey I am publishing")

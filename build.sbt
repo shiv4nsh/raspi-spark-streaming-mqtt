@@ -4,7 +4,7 @@ name := "spark-streaming-mqtt-raspberryPi"
 val spark = "org.apache.spark" %% "spark-core" % "1.6.2"
 val sparkStreamingMqtt = "org.apache.spark" %% "spark-streaming-mqtt" % "1.6.2"
 val sparkStreaming = "org.apache.spark" %% "spark-streaming" % "1.6.2"
-
+val config = "com.typesafe" % "config" % "1.3.1"
 
 resolvers += "bintray-spark-packages" at "https://dl.bintray.com/spark-packages/maven/"
 
@@ -18,7 +18,7 @@ lazy val commonSettings = Seq(
 lazy val root = (project in file(".")).
   settings(commonSettings: _*).
   settings(
-    libraryDependencies ++= Seq(spark, sparkStreaming,sparkStreamingMqtt)
+    libraryDependencies ++= Seq(spark, sparkStreaming,sparkStreamingMqtt, config)
   )
 
 assembleArtifact in assemblyPackageScala := false // We don't need the Scala library, Spark already includes it
